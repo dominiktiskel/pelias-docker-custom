@@ -59,7 +59,8 @@
           "filename": "poland-latest.osm.pbf"
         }
       ],
-      "preferOsmAdmin": true
+      "preferOsmAdmin": true,
+      "importVenues": true
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -95,6 +96,13 @@
       "importPlace": [
         "85633723"
       ]
+    },
+    "adminLookup": {
+      "enabled": true,
+      "usePostalCities": true,
+      "useEndonyms": true,
+      "maxConcurrentReqs": 80
     }
   }
 }
+

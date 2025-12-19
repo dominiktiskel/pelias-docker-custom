@@ -63,7 +63,8 @@
       "datapath": "/data/openstreetmap",
       "import": [{
         "filename": "portland_oregon.osm.pbf"
-      }]
+      }],
+      "preferOsmAdmin": true
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",

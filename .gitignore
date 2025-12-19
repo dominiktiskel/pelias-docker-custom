@@ -1,2 +1,11 @@
-projects/*/data
+data/
+/data
+.env
+docker-compose.override.yml
+*.log
 .DS_Store
+Thumbs.db
+# Ignore data directories in project folders
+projects/*/data/
+# Ignore any local environment files
+**/.env.local
