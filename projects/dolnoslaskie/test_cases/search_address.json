@@ -1,0 +1,68 @@
+{
+  "name": "Dolnośląskie Address Search Tests",
+  "priorityThresh": 1,
+  "endpoint": "search",
+  "tests": [
+    {
+      "id": 1,
+      "name": "Wrocław Rynek (Market Square)",
+      "in": {
+        "text": "Rynek Wrocław"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Wrocław",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Popular street in Wrocław",
+      "in": {
+        "text": "Świdnicka Wrocław"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Wrocław",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Jelenia Góra city center",
+      "in": {
+        "text": "Plac Ratuszowy Jelenia Góra"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Jelenia Góra",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Legnica main square",
+      "in": {
+        "text": "Rynek Legnica"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Legnica",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    }
+  ]
+}
+

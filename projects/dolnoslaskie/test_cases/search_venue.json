@@ -1,0 +1,67 @@
+{
+  "name": "Dolnośląskie Venue Search Tests",
+  "priorityThresh": 1,
+  "endpoint": "search",
+  "tests": [
+    {
+      "id": 1,
+      "name": "Wrocław University",
+      "in": {
+        "text": "Uniwersytet Wrocławski"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Wrocław",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Wrocław Main Train Station",
+      "in": {
+        "text": "Dworzec Główny Wrocław"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Wrocław",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Śnieżka mountain peak",
+      "in": {
+        "text": "Śnieżka"
+      },
+      "expected": {
+        "properties": [
+          {
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Wałbrzych Castle",
+      "in": {
+        "text": "Zamek Książ Wałbrzych"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Wałbrzych",
+            "region": "Dolnośląskie"
+          }
+        ]
+      }
+    }
+  ]
+}
+
