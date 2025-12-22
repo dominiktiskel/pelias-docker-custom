@@ -43,7 +43,7 @@ services:
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
   openstreetmap:
-    image: tiskel/openstreetmap:v1.2
+    image: tiskel/openstreetmap:v1.5.1
     container_name: pelias_openstreetmap
     user: "${DOCKER_USER}"
     volumes:

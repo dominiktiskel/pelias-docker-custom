@@ -34,7 +34,7 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
   openstreetmap:
-    image: tiskel/openstreetmap:v1.2
+    image: tiskel/openstreetmap:v1.5.1
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"

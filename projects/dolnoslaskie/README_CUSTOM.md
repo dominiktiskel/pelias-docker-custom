@@ -27,7 +27,7 @@ Projekt używa custom image z priorytetem dla danych administracyjnych z OSM:
 ```yaml
 # docker-compose.yml
 openstreetmap:
-  image: tiskel/openstreetmap:v1.2
+  image: tiskel/openstreetmap:v1.5.1
 ```
 
 ```json
