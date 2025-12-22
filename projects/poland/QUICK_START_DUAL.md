@@ -2,6 +2,15 @@
 
 Ten projekt jest skonfigurowany do działania **równolegle** z innymi instancjami Pelias.
 
+## 📝 Konfiguracja
+
+Projekt używa **COMPOSE_PROJECT_NAME** dla czystej konfiguracji. Plik `.env`:
+```bash
+COMPOSE_PROJECT_NAME=pelias-poland
+DATA_DIR=/data/pelias-poland
+DOCKER_USER=1000:1000
+```
+
 ## 🔌 Porty
 
 - **API**: http://localhost:4000
@@ -13,10 +22,10 @@ Ten projekt jest skonfigurowany do działania **równolegle** z innymi instancja
 
 ## 🐳 Kontenery
 
-Wszystkie kontenery mają prefix `poland_`:
-- `poland_api`
-- `poland_elasticsearch`
-- `poland_openstreetmap`
+Wszystkie kontenery mają prefix `pelias-poland_` i suffix `_1`:
+- `pelias-poland_api_1`
+- `pelias-poland_elasticsearch_1`
+- `pelias-poland_openstreetmap_1`
 - itd.
 
 ## 🚀 Szybki Start
@@ -24,12 +33,13 @@ Wszystkie kontenery mają prefix `poland_`:
 ```bash
 cd docker/projects/poland
 
-# Ustaw zmienne środowiskowe
-export DATA_DIR=/data/pelias-poland
-export DOCKER_USER=$(id -u):$(id -g)
+# Zmienne środowiskowe są już skonfigurowane w pliku .env
+# Możesz je nadpisać jeśli potrzebne:
+# export DATA_DIR=/custom/path
+# export DOCKER_USER=$(id -u):$(id -g)
 
 # Utwórz katalog danych
-mkdir -p $DATA_DIR
+mkdir -p /data/pelias-poland
 
 # 1. Start Elasticsearch
 docker-compose up -d elasticsearch
@@ -63,7 +73,7 @@ curl "http://localhost:4000/v1/search?text=Warszawa"
 
 ```bash
 # Kontenery
-docker ps --filter "name=poland_"
+docker ps --filter "name=pelias-poland_"
 
 # Logi API
 docker-compose logs -f api
@@ -86,5 +96,8 @@ docker-compose down
 
 ---
 
-**⚠️ UWAGA**: Ten projekt używa **własnej sieci** `pelias_poland` i może działać równolegle z `united-kingdom` na tej samej maszynie.
+**⚠️ UWAGA**: Ten projekt używa:
+- **COMPOSE_PROJECT_NAME**: `pelias-poland`
+- **Własnej sieci**: `pelias-poland_default` (auto-generowanej)
+- Może działać równolegle z `united-kingdom` na tej samej maszynie
 

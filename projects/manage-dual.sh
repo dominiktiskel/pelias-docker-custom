@@ -43,8 +43,8 @@ if [ $# -eq 0 ]; then
     echo "  stats       - Statystyki Elasticsearch"
     echo ""
     echo "Projects:"
-    echo "  poland      - Poland instance (ports 4xxx, 9200)"
-    echo "  uk          - United Kingdom instance (ports 5xxx, 9201)"
+    echo "  poland      - Poland instance (ports 4xxx, 9200, prefix: pelias-poland_)"
+    echo "  uk          - United Kingdom instance (ports 5xxx, 9201, prefix: pelias-uk_)"
     echo "  all         - Both instances"
     echo ""
     echo "Przykłady:"
@@ -64,9 +64,9 @@ check_status() {
     local prefix=""
     
     if [ "$project" == "poland" ]; then
-        prefix="poland_"
+        prefix="pelias-poland_"
     elif [ "$project" == "uk" ]; then
-        prefix="uk_"
+        prefix="pelias-uk_"
     fi
     
     header "Status: $project"

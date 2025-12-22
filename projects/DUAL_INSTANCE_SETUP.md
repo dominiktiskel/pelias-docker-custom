@@ -17,26 +17,46 @@ Przewodnik konfiguracji do uruchamiania **Poland** i **United Kingdom** Pelias n
 
 | Serwis | Poland | UK |
 |--------|--------|-----|
-| API | `poland_api` | `uk_api` |
-| Elasticsearch | `poland_elasticsearch` | `uk_elasticsearch` |
-| OpenStreetMap | `poland_openstreetmap` | `uk_openstreetmap` |
-| Libpostal | `poland_libpostal` | `uk_libpostal` |
-| Placeholder | `poland_placeholder` | `uk_placeholder` |
-| PIP | `poland_pip` | `uk_pip` |
-| Interpolation | `poland_interpolation` | `uk_interpolation` |
-| WhosOnFirst | `poland_whosonfirst` | `uk_whosonfirst` |
-| OpenAddresses | `poland_openaddresses` | `uk_openaddresses` |
-| CSV Importer | `poland_csv_importer` | `uk_csv_importer` |
-| Polylines | `poland_polylines` | `uk_polylines` |
-| Schema | `poland_schema` | `uk_schema` |
-| Fuzzy Tester | `poland_fuzzy_tester` | `uk_fuzzy_tester` |
+| API | `pelias-poland_api_1` | `pelias-uk_api_1` |
+| Elasticsearch | `pelias-poland_elasticsearch_1` | `pelias-uk_elasticsearch_1` |
+| OpenStreetMap | `pelias-poland_openstreetmap_1` | `pelias-uk_openstreetmap_1` |
+| Libpostal | `pelias-poland_libpostal_1` | `pelias-uk_libpostal_1` |
+| Placeholder | `pelias-poland_placeholder_1` | `pelias-uk_placeholder_1` |
+| PIP | `pelias-poland_pip_1` | `pelias-uk_pip_1` |
+| Interpolation | `pelias-poland_interpolation_1` | `pelias-uk_interpolation_1` |
+| WhosOnFirst | `pelias-poland_whosonfirst_1` | `pelias-uk_whosonfirst_1` |
+| OpenAddresses | `pelias-poland_openaddresses_1` | `pelias-uk_openaddresses_1` |
+| CSV Importer | `pelias-poland_csv-importer_1` | `pelias-uk_csv-importer_1` |
+| Polylines | `pelias-poland_polylines_1` | `pelias-uk_polylines_1` |
+| Schema | `pelias-poland_schema_1` | `pelias-uk_schema_1` |
+| Fuzzy Tester | `pelias-poland_fuzzy-tester_1` | `pelias-uk_fuzzy-tester_1` |
+
+**Uwaga**: Suffix `_1` jest automatycznie dodawany przez Docker Compose (numeracja instancji).
 
 ## 🌐 Sieci Docker
 
-- **Poland**: `pelias_poland`
-- **UK**: `pelias_uk`
+- **Poland**: `pelias-poland_default`
+- **UK**: `pelias-uk_default`
 
-Każdy projekt ma własną izolowaną sieć Docker.
+Każdy projekt ma własną izolowaną sieć Docker, automatycznie tworzoną przez Docker Compose.
+
+## 📝 Pliki Konfiguracyjne .env
+
+Każdy projekt używa pliku `.env` do konfiguracji `COMPOSE_PROJECT_NAME`:
+
+**Poland** (`docker/projects/poland/.env`):
+```bash
+COMPOSE_PROJECT_NAME=pelias-poland
+DATA_DIR=/data/pelias-poland
+DOCKER_USER=1000:1000
+```
+
+**UK** (`docker/projects/united-kingdom/.env`):
+```bash
+COMPOSE_PROJECT_NAME=pelias-uk
+DATA_DIR=/data/pelias-uk
+DOCKER_USER=1000:1000
+```
 
 ## 🚀 Uruchamianie
 
@@ -45,9 +65,10 @@ Każdy projekt ma własną izolowaną sieć Docker.
 ```bash
 cd docker/projects/poland
 
-# Ustaw zmienne środowiskowe (jeśli potrzebne)
-export DATA_DIR=/data/pelias-poland
-export DOCKER_USER=$(id -u):$(id -g)
+# Zmienne środowiskowe są skonfigurowane w pliku .env
+# Możesz je nadpisać jeśli potrzebne:
+# export DATA_DIR=/custom/path
+# export DOCKER_USER=$(id -u):$(id -g)
 
 # Uruchom wszystkie serwisy
 docker-compose up -d
@@ -66,9 +87,10 @@ docker-compose logs -f api
 ```bash
 cd docker/projects/united-kingdom
 
-# Ustaw zmienne środowiskowe (jeśli potrzebne)
-export DATA_DIR=/data/pelias-uk
-export DOCKER_USER=$(id -u):$(id -g)
+# Zmienne środowiskowe są skonfigurowane w pliku .env
+# Możesz je nadpisać jeśli potrzebne:
+# export DATA_DIR=/custom/path
+# export DOCKER_USER=$(id -u):$(id -g)
 
 # Uruchom wszystkie serwisy
 docker-compose up -d
@@ -174,10 +196,10 @@ curl "http://localhost:5000/v1/reverse?point.lat=51.5074&point.lon=-0.1278"
 
 ```bash
 # Poland
-docker ps --filter "name=poland_"
+docker ps --filter "name=pelias-poland_"
 
 # UK
-docker ps --filter "name=uk_"
+docker ps --filter "name=pelias-uk_"
 ```
 
 ### Elasticsearch stats
@@ -301,13 +323,17 @@ cd docker/projects/united-kingdom && docker-compose up -d
 - ✅ Custom OSM image: `tiskel/openstreetmap:v1.2`
 - ✅ OSM Admin Priority: `preferOsmAdmin: true`
 - ✅ Transit data support
+- ✅ COMPOSE_PROJECT_NAME: `pelias-poland`
 - Porty: 4000, 4100-4400, 9200-9300
+- Kontenery: `pelias-poland_*_1`
 
 ### United Kingdom
 - ✅ Custom OSM image: `tiskel/openstreetmap:v1.2`
 - ✅ OSM Admin Priority: `preferOsmAdmin: true`
 - ✅ Postcode import enabled
+- ✅ COMPOSE_PROJECT_NAME: `pelias-uk`
 - Porty: 5000, 5100-5400, 9201, 9301
+- Kontenery: `pelias-uk_*_1`
 
 ---
 
