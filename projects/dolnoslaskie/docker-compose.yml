@@ -17,7 +17,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_dolnoslaskie" ]
   api:
-    image: pelias/api:master
+    image: tiskel/pelias-api:v1.0.2
     container_name: dolnoslaskie_api
     user: "${DOCKER_USER}"
     restart: always
@@ -47,7 +47,7 @@ services:
       - "${DATA_DIR}:/data"
     networks: [ "pelias_dolnoslaskie" ]
   openstreetmap:
-    image: tiskel/openstreetmap:v1.5.1
+    image: tiskel/openstreetmap:v1.8.2
     container_name: dolnoslaskie_openstreetmap
     user: "${DOCKER_USER}"
     volumes:
