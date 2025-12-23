@@ -94,3 +94,4 @@ Write-Host "  pelias compose pull openstreetmap" -ForegroundColor White
 Write-Host "  pelias import osm" -ForegroundColor White
 Write-Host ""
 
+
