@@ -66,7 +66,10 @@
           "filename": "dolnoslaskie-latest.osm.pbf"
         }
       ],
-      "preferOsmAdmin": true
+      "preferOsmAdmin": true,
+      "useV2Pipeline": false,
+      "aggregateHouseNumbers": true,
+      "importStreets": true
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
