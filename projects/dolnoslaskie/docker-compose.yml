@@ -47,7 +47,7 @@ services:
       - "${DATA_DIR}:/data"
     networks: [ "pelias_dolnoslaskie" ]
   openstreetmap:
-    image: tiskel/openstreetmap:v2.2.0
+    image: tiskel/openstreetmap:v2.2.1
     container_name: dolnoslaskie_openstreetmap
     user: "${DOCKER_USER}"
     volumes:
