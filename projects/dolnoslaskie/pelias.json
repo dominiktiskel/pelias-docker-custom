@@ -67,7 +67,6 @@
         }
       ],
       "preferOsmAdmin": true,
-      "useV2Pipeline": false,
       "aggregateHouseNumbers": true,
       "importStreets": true
     },
