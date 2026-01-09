@@ -1,14 +1,19 @@
+networks:
+  pelias_poland:
+    driver: bridge
 services:
   libpostal:
     image: pelias/libpostal-service
     user: "${DOCKER_USER}"
     restart: always
     ports: [ "127.0.0.1:4400:4400" ]
+    networks: [ "pelias_poland" ]
   schema:
     image: pelias/schema:master
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
+    networks: [ "pelias_poland" ]
   api:
     image: tiskel/pelias-api:v1.0.4
     user: "${DOCKER_USER}"
@@ -17,6 +22,7 @@ services:
     ports: [ "0.0.0.0:4000:4000" ]
     volumes:
       - "./pelias.json:/code/pelias.json"
+    networks: [ "pelias_poland" ]
   placeholder:
     image: pelias/placeholder:master
     user: "${DOCKER_USER}"
@@ -27,24 +33,28 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
+    networks: [ "pelias_poland" ]
   whosonfirst:
     image: pelias/whosonfirst:master
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   openstreetmap:
     image: tiskel/openstreetmap:v2.7.0
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   openaddresses:
     image: pelias/openaddresses:master
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   csv-importer:
     image: pelias/csv-importer:master
     user: "${DOCKER_USER}"
@@ -52,18 +62,21 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
+    networks: [ "pelias_poland" ]
   transit:
     image: pelias/transit:master
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   polylines:
     image: pelias/polylines:master
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   interpolation:
     image: pelias/interpolation:master
     user: "${DOCKER_USER}"
@@ -73,6 +86,7 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   pip:
     image: pelias/pip-service:master
     user: "${DOCKER_USER}"
@@ -82,6 +96,7 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+    networks: [ "pelias_poland" ]
   elasticsearch:
     image: pelias/elasticsearch:7.17.27
     user: "${DOCKER_USER}"
@@ -100,6 +115,7 @@ services:
     cap_add: [ "IPC_LOCK" ]
     security_opt:
       - seccomp=unconfined
+    networks: [ "pelias_poland" ]
   fuzzy-tester:
     image: pelias/fuzzy-tester:master
     user: "${DOCKER_USER}"
@@ -108,3 +124,4 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "./test_cases:/code/pelias/fuzzy-tester/test_cases"
+    networks: [ "pelias_poland" ]
