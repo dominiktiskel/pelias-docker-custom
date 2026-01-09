@@ -59,7 +59,10 @@
           "filename": "poland-latest.osm.pbf"
         }
       ],
-      "preferOsmAdmin": true
+      "preferOsmAdmin": true,
+      "useV2Pipeline": true,
+      "aggregateHouseNumbers": true,
+      "importStreets": true
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -91,10 +94,7 @@
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "countryCode": "PL",
-      "importPostalcodes": false,
-      "importPlace": [
-        "85633723"
-      ]
+      "importPostalcodes": true
     }
   }
 }

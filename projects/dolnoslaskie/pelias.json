@@ -67,6 +67,7 @@
         }
       ],
       "preferOsmAdmin": true,
+      "useV2Pipeline": true,
       "aggregateHouseNumbers": true,
       "importStreets": true
     },
@@ -85,10 +86,7 @@
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "countryCode": "PL",
-      "importPostalcodes": true,
-      "importPlace": [
-        "85633723"
-      ]
+      "importPostalcodes": true
     }
   }
 }
