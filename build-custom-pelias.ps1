@@ -3,7 +3,7 @@
 # Example: .\build-custom-pelias.ps1 v1.6.1
 
 param(
-    [string]$Version = "v1.6.1",
+    [string]$Version = "latest",
     [switch]$NoPush,
     [switch]$NoTest
 )
