@@ -1,7 +1,7 @@
 {
   "logger": {
-    "level": "debug",
-    "timestamp": false
+    "level": "info",
+    "timestamp": true
   },
   "esclient": {
     "apiVersion": "7.5",
@@ -16,6 +16,11 @@
         "number_of_replicas": "0",
         "number_of_shards": "1"
       }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
     }
   },
   "api": {
@@ -40,14 +45,21 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/europe/great-britain-latest.osm.pbf" }
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/great-britain-latest.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "great-britain-latest.osm.pbf"
-      }],
-      "preferOsmAdmin": true
+      "import": [
+        {
+          "filename": "great-britain-latest.osm.pbf"
+        }
+      ],
+      "preferOsmAdmin": true,
+      "useV2Pipeline": true,
+      "aggregateHouseNumbers": true,
+      "importStreets": true
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
