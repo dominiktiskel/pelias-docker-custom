@@ -1,0 +1,32 @@
+{
+  "name": "/v1/search address",
+  "description": "addresses in Spain",
+  "priorityThresh": 1,
+  "normalizers": {
+    "name": [
+      "toUpperCase",
+      "removeOrdinals",
+      "stripPunctuation",
+      "abbreviateDirectionals",
+      "abbreviateStreetSuffixes"
+    ]
+  },
+  "tests": [
+    {
+      "id": 1,
+      "status": "pass",
+      "in": {
+        "text": "madrid"
+      },
+      "expected": {
+        "properties": [
+          {
+            "name": "MADRID",
+            "locality": "Madrid",
+            "country_a": "ESP"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "Mazowieckie Address Search Tests",
+  "priorityThresh": 1,
+  "endpoint": "search",
+  "tests": [
+    {
+      "id": 1,
+      "name": "Warszawa Stare Miasto (Old Town)",
+      "in": {
+        "text": "Stare Miasto Warszawa"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Popular street in Warszawa",
+      "in": {
+        "text": "Nowy Świat Warszawa"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Radom city center",
+      "in": {
+        "text": "Rynek Radom"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Radom",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Płock main square",
+      "in": {
+        "text": "Stary Rynek Płock"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Płock",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    }
+  ]
+}

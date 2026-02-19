@@ -1,0 +1,129 @@
+networks:
+  pelias_spain:
+    driver: bridge
+services:
+  libpostal:
+    image: pelias/libpostal-service
+    user: "${DOCKER_USER}"
+    restart: always
+    ports: [ "127.0.0.1:34400:4400" ]
+    networks: [ "pelias_spain" ]
+  schema:
+    image: pelias/schema:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+    networks: [ "pelias_spain" ]
+  api:
+    image: tiskel/pelias-api:v1.0.4
+    user: "${DOCKER_USER}"
+    restart: always
+    environment: [ "PORT=4000" ]
+    ports: [ "0.0.0.0:34000:4000" ]
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+    networks: [ "pelias_spain" ]
+  placeholder:
+    image: pelias/placeholder:master
+    user: "${DOCKER_USER}"
+    restart: always
+    environment: [ "PORT=4100" ]
+    ports: [ "127.0.0.1:34100:4100" ]
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+      - "./blacklist/:/data/blacklist"
+    networks: [ "pelias_spain" ]
+  whosonfirst:
+    image: pelias/whosonfirst:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  openstreetmap:
+    image: tiskel/openstreetmap:v2.8.3
+    user: "${DOCKER_USER}"
+    environment:
+      NODE_OPTIONS: "--max-old-space-size=16384"  # 16GB
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  openaddresses:
+    image: pelias/openaddresses:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  csv-importer:
+    image: pelias/csv-importer:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+      - "./blacklist/:/data/blacklist"
+    networks: [ "pelias_spain" ]
+  transit:
+    image: pelias/transit:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  polylines:
+    image: pelias/polylines:master
+    user: "${DOCKER_USER}"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  interpolation:
+    image: pelias/interpolation:master
+    user: "${DOCKER_USER}"
+    restart: always
+    environment: [ "PORT=4300" ]
+    ports: [ "127.0.0.1:34300:4300" ]
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  pip:
+    image: pelias/pip-service:master
+    user: "${DOCKER_USER}"
+    restart: always
+    environment: [ "PORT=4200" ]
+    ports: [ "127.0.0.1:34200:4200" ]
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "${DATA_DIR}:/data"
+    networks: [ "pelias_spain" ]
+  elasticsearch:
+    image: pelias/elasticsearch:7.17.27
+    user: "${DOCKER_USER}"
+    restart: always
+    ports: [ "127.0.0.1:39200:9200", "127.0.0.1:39300:9300" ]
+    volumes:
+      - "./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro"
+      - "${DATA_DIR}/elasticsearch:/usr/share/elasticsearch/data"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add: [ "IPC_LOCK" ]
+    security_opt:
+      - seccomp=unconfined
+    networks: [ "pelias_spain" ]
+  fuzzy-tester:
+    image: pelias/fuzzy-tester:master
+    user: "${DOCKER_USER}"
+    restart: "no"
+    command: "--help"
+    volumes:
+      - "./pelias.json:/code/pelias.json"
+      - "./test_cases:/code/pelias/fuzzy-tester/test_cases"
+    networks: [ "pelias_spain" ]

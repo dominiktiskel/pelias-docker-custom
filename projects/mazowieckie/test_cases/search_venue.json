@@ -1,0 +1,67 @@
+{
+  "name": "Mazowieckie Venue Search Tests",
+  "priorityThresh": 1,
+  "endpoint": "search",
+  "tests": [
+    {
+      "id": 1,
+      "name": "Palace of Culture and Science",
+      "in": {
+        "text": "Pałac Kultury i Nauki"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Warsaw University",
+      "in": {
+        "text": "Uniwersytet Warszawski"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Łazienki Royal Park",
+      "in": {
+        "text": "Łazienki Królewskie Warszawa"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Warsaw Central Station",
+      "in": {
+        "text": "Dworzec Centralny Warszawa"
+      },
+      "expected": {
+        "properties": [
+          {
+            "locality": "Warszawa",
+            "region": "Mazowieckie"
+          }
+        ]
+      }
+    }
+  ]
+}

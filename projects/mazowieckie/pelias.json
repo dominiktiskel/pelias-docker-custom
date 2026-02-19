@@ -1,12 +1,14 @@
 {
   "logger": {
     "level": "info",
-    "timestamp": true
+    "timestamp": false
   },
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -25,14 +27,22 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     },
     "defaultParameters": {
-      "focus.point.lat": 54.0,
-      "focus.point.lon": -2.5
+      "focus.point.lat": 52.2297,
+      "focus.point.lon": 21.0122
     }
   },
   "imports": {
@@ -41,19 +51,19 @@
     },
     "geonames": {
       "datapath": "/data/geonames",
-      "countryCode": "GB"
+      "countryCode": "PL"
     },
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "http://download.geofabrik.de/europe/great-britain-latest.osm.pbf"
+          "sourceURL": "http://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "great-britain-latest.osm.pbf"
+          "filename": "mazowieckie-latest.osm.pbf"
         }
       ],
       "preferOsmAdmin": true,
@@ -63,17 +73,20 @@
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
-      "files": ["gb/countrywide.csv"]
+      "files": [
+        "pl/mazowieckie"
+      ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
-      "importPostalcodes": true,
-      "countryCode": "GB"
+      "countryCode": "PL",
+      "importPostalcodes": true
     }
   }
 }
-
