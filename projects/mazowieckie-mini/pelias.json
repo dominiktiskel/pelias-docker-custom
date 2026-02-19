@@ -1,0 +1,65 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      {
+        "host": "elasticsearch"
+      }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 52.2297,
+      "focus.point.lon": 21.0122
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst"
+    },
+    "openstreetmap": {
+      "download": [
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf"
+        }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        {
+          "filename": "mazowieckie-latest.osm.pbf"
+        }
+      ],
+      "preferOsmAdmin": true,
+      "useV2Pipeline": true,
+      "aggregateHouseNumbers": true,
+      "importStreets": true
+    }
+  }
+}
