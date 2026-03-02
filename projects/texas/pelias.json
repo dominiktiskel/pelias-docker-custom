@@ -6,7 +6,9 @@
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -25,10 +27,18 @@
   },
   "api": {
     "services": {
-      "placeholder": { "url": "http://placeholder:4100" },
-      "pip": { "url": "http://pip:4200" },
-      "interpolation": { "url": "http://interpolation:4300" },
-      "libpostal": { "url": "http://libpostal:4400" }
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
     }
   },
   "imports": {
@@ -46,13 +56,18 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/texas-latest.osm.pbf" }
+        {
+          "sourceURL": "http://download.geofabrik.de/north-america/us/texas-latest.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "texas-latest.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "texas-latest.osm.pbf",
+          "countryCode": "US"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -367,7 +382,9 @@
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
@@ -378,15 +395,16 @@
     },
     "transit": {
       "datapath": "/data/transit",
-      "feeds": [
-      ]
+      "feeds": []
     },
     "interpolation": {
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 48 }
+            {
+              "state_code": 48
+            }
           ]
         }
       }

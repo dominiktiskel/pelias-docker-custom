@@ -63,7 +63,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "mazowieckie-latest.osm.pbf"
+          "filename": "mazowieckie-latest.osm.pbf",
+          "countryCode": "PL"
         }
       ],
       "preferOsmAdmin": true,

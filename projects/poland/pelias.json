@@ -56,7 +56,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "poland-latest.osm.pbf"
+          "filename": "poland-latest.osm.pbf",
+          "countryCode": "PL"
         }
       ],
       "preferOsmAdmin": true,

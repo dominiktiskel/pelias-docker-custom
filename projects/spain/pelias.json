@@ -56,7 +56,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "spain-latest.osm.pbf"
+          "filename": "spain-latest.osm.pbf",
+          "countryCode": "ES"
         }
       ],
       "preferOsmAdmin": true,

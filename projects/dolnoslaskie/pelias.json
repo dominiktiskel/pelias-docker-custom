@@ -63,7 +63,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "dolnoslaskie-latest.osm.pbf"
+          "filename": "dolnoslaskie-latest.osm.pbf",
+          "countryCode": "PL"
         }
       ],
       "preferOsmAdmin": true,
@@ -90,4 +91,3 @@
     }
   }
 }
-

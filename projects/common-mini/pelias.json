@@ -58,16 +58,20 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "poland-latest.osm.pbf"
+          "filename": "poland-latest.osm.pbf",
+          "countryCode": "PL"
         },
         {
-          "filename": "great-britain-latest.osm.pbf"
+          "filename": "great-britain-latest.osm.pbf",
+          "countryCode": "GB"
         },
         {
-          "filename": "germany-latest.osm.pbf"
+          "filename": "germany-latest.osm.pbf",
+          "countryCode": "DE"
         },
         {
-          "filename": "spain-latest.osm.pbf"
+          "filename": "spain-latest.osm.pbf",
+          "countryCode": "ES"
         }
       ],
       "preferOsmAdmin": true,

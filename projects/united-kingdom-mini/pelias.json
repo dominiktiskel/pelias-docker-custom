@@ -53,7 +53,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "great-britain-latest.osm.pbf"
+          "filename": "great-britain-latest.osm.pbf",
+          "countryCode": "GB"
         }
       ],
       "preferOsmAdmin": true,

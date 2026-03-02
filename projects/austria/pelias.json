@@ -6,7 +6,9 @@
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -20,10 +22,18 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     },
     "defaultParameters": {
       "focus.point.lat": 50.85,
@@ -40,27 +50,42 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/europe/austria-latest.osm.pbf" }
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/austria-latest.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "austria-latest.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "austria-latest.osm.pbf",
+          "countryCode": "AT"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
-      "files": ["at/31254.csv", "at/31255.csv", "at/31256.csv", "at/city_of_vienna.csv", "at/tirol.csv"]
+      "files": [
+        "at/31254.csv",
+        "at/31255.csv",
+        "at/31256.csv",
+        "at/city_of_vienna.csv",
+        "at/tirol.csv"
+      ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "countryCode": "AT",
       "importPostalcodes": true,
-      "importPlace": [ "85632785" ]
+      "importPlace": [
+        "85632785"
+      ]
     }
   }
 }

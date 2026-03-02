@@ -6,7 +6,9 @@
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -20,10 +22,18 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     }
   },
   "imports": {
@@ -36,27 +46,38 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "https://download.geofabrik.de/asia/kyrgyzstan-latest.osm.pbf" }
+        {
+          "sourceURL": "https://download.geofabrik.de/asia/kyrgyzstan-latest.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "kyrgyzstan-latest.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "kyrgyzstan-latest.osm.pbf",
+          "countryCode": "KG"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
-      "files": ["kg/countrywide.csv"]
+      "files": [
+        "kg/countrywide.csv"
+      ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "countryCode": "KG",
       "importPostalcodes": true,
-      "importPlace": [ "85632761" ]
+      "importPlace": [
+        "85632761"
+      ]
     }
   }
 }

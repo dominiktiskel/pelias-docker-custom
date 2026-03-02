@@ -6,7 +6,9 @@
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -25,10 +27,18 @@
   },
   "api": {
     "services": {
-      "placeholder": { "url": "http://placeholder:4100" },
-      "pip": { "url": "http://pip:4200" },
-      "interpolation": { "url": "http://interpolation:4300" },
-      "libpostal": { "url": "http://libpostal:4400" }
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
     },
     "defaultParameters": {
       "focus.point.lat": 36.14737,
@@ -52,13 +62,18 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "https://download.geofabrik.de/north-america/us/nevada-240702.osm.pbf" }
+        {
+          "sourceURL": "https://download.geofabrik.de/north-america/us/nevada-240702.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "nevada-240702.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "nevada-240702.osm.pbf",
+          "countryCode": "US"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -70,7 +85,9 @@
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
@@ -98,7 +115,11 @@
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 32, "county_code": 3, "name": "Clark County, NV" }
+            {
+              "state_code": 32,
+              "county_code": 3,
+              "name": "Clark County, NV"
+            }
           ]
         }
       }

@@ -6,7 +6,9 @@
   "esclient": {
     "apiVersion": "7.5",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "host": "elasticsearch"
+      }
     ]
   },
   "elasticsearch": {
@@ -25,10 +27,18 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     },
     "defaultParameters": {
       "focus.point.lat": 34.05,
@@ -45,13 +55,18 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "https://s3.amazonaws.com/metro-extracts.nextzen.org/los-angeles_california.osm.pbf" }
+        {
+          "sourceURL": "https://s3.amazonaws.com/metro-extracts.nextzen.org/los-angeles_california.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "los-angeles_california.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "los-angeles_california.osm.pbf",
+          "countryCode": "US"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -61,7 +76,9 @@
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
@@ -106,14 +123,18 @@
           "agencyName": "LADOT",
           "layerName": "Stop"
         }
-       ]
-      },
+      ]
+    },
     "interpolation": {
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 6, "county_code": 37, "name": "Los Angeles County, CA" }
+            {
+              "state_code": 6,
+              "county_code": 37,
+              "name": "Los Angeles County, CA"
+            }
           ]
         }
       }

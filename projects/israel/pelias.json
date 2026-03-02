@@ -54,7 +54,8 @@
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "israel-and-palestine-latest.osm.pbf"
+          "filename": "israel-and-palestine-latest.osm.pbf",
+          "countryCode": "IL"
         }
       ]
     },
