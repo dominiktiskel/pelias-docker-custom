@@ -46,6 +46,12 @@
         },
         {
           "sourceURL": "http://download.geofabrik.de/europe/great-britain-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/germany-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/spain-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
@@ -56,6 +62,12 @@
         },
         {
           "filename": "great-britain-latest.osm.pbf"
+        },
+        {
+          "filename": "germany-latest.osm.pbf"
+        },
+        {
+          "filename": "spain-latest.osm.pbf"
         }
       ],
       "preferOsmAdmin": true,
