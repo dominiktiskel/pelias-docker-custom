@@ -27,7 +27,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_common_mini" ]
   openstreetmap:
-    image: tiskel/openstreetmap:v2.9.0
+    image: tiskel/openstreetmap:v2.9.3
     container_name: common_mini_openstreetmap
     user: "${DOCKER_USER}"
     environment:
