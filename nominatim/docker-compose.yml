@@ -1,0 +1,23 @@
+services:
+  nominatim:
+    image: mediagis/nominatim:5.2
+    container_name: nominatim-multi
+    restart: unless-stopped
+    ports:
+      - "18080:8080"
+    environment:
+      PBF_PATH: /nominatim/pbf/merged.osm.pbf
+      NOMINATIM_PASSWORD: trUdneEHaslO12!@#
+      THREADS: 16
+      # IMPORT_WIKIPEDIA: true
+      # IMPORT_WIKIDATA: true
+    volumes:
+      - ./pbf:/nominatim/pbf
+      - ./data:/var/lib/postgresql/16/main
+    shm_size: "8g"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/search?q=Warsaw&format=json&limit=1"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 30m
