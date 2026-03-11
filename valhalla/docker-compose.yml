@@ -1,0 +1,23 @@
+services:
+  valhalla:
+    image: ghcr.io/valhalla/valhalla-scripted:3.6.3
+    container_name: valhalla
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./custom_files:/custom_files
+    environment:
+      - tile_urls=http://download.geofabrik.de/europe/poland-latest.osm.pbf http://download.geofabrik.de/europe/germany/brandenburg-latest.osm.pbf http://download.geofabrik.de/europe/germany/mecklenburg-vorpommern-latest.osm.pbf
+      - use_tiles_ignore_pbf=True
+      - force_rebuild=False
+      - build_elevation=False
+      - build_admins=True
+      - build_time_zones=True
+      - build_tar=True
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/status"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 60m
