@@ -46,14 +46,14 @@
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "https://download.bbbike.org/osm/bbbike/Liverpool/Liverpool.osm.pbf"
+          "sourceURL": "https://download.geofabrik.de/europe/united-kingdom/england/merseyside-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "Liverpool.osm.pbf",
+          "filename": "merseyside-latest.osm.pbf",
           "countryCode": "GB"
         }
       ],
