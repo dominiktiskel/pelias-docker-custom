@@ -1,5 +1,5 @@
-cluster.name: pelias-mazowieckie-mini
-node.name: pelias-mazowieckie-mini-node
+cluster.name: pelias-liverpool-mini
+node.name: pelias-liverpool-mini-node
 network.host: 0.0.0.0
 bootstrap.memory_lock: true
 indices.breaker.fielddata.limit: 85%
