@@ -54,7 +54,8 @@
       "import": [
         {
           "filename": "merseyside-latest.osm.pbf",
-          "countryCode": "GB"
+          "countryCode": "GB",
+          "importHighwayStreets": true
         }
       ],
       "preferOsmAdmin": true,

@@ -37,6 +37,8 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
+      - "../../../openstreetmap/config:/code/pelias/openstreetmap/config"
+      - "../../../openstreetmap/stream:/code/pelias/openstreetmap/stream"
     networks: [ "pelias_liverpool_mini" ]
   elasticsearch:
     image: pelias/elasticsearch:7.17.27
