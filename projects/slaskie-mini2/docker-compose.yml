@@ -17,7 +17,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_slaskie_mini2" ]
   api:
-    image: tiskel/pelias-api:v1.0.7
+    image: tiskel/pelias-api:v1.0.9
     container_name: slaskie_mini2_api
     user: "${DOCKER_USER}"
     restart: always
