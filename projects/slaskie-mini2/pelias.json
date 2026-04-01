@@ -1,0 +1,67 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      {
+        "host": "elasticsearch"
+      }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 50.2598,
+      "focus.point.lon": 19.0216
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst"
+    },
+    "openstreetmap": {
+      "download": [
+        {
+          "sourceURL": "https://download.geofabrik.de/europe/poland/slaskie-latest.osm.pbf"
+        }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        {
+          "filename": "slaskie-latest.osm.pbf",
+          "countryCode": "PL",
+          "importHighwayStreets": true
+        }
+      ],
+      "preferOsmAdmin": true,
+      "useV2Pipeline": true,
+      "aggregateHouseNumbers": true,
+      "importStreets": true
+    }
+  }
+}
