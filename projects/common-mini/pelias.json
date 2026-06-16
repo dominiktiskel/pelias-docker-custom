@@ -59,23 +59,26 @@
       "import": [
         {
           "filename": "poland-latest.osm.pbf",
-          "countryCode": "PL"
+          "countryCode": "PL",
+          "importVenues": true
         },
         {
           "filename": "great-britain-latest.osm.pbf",
-          "countryCode": "GB"
+          "countryCode": "GB",
+          "importVenues": true,
+          "importHighwayStreets": true
         },
         {
           "filename": "germany-latest.osm.pbf",
-          "countryCode": "DE"
+          "countryCode": "DE",
+          "importVenues": true
         },
         {
           "filename": "spain-latest.osm.pbf",
-          "countryCode": "ES"
+          "countryCode": "ES",
+          "importVenues": true
         }
       ],
-      "preferOsmAdmin": true,
-      "useV2Pipeline": true,
       "aggregateHouseNumbers": true,
       "importStreets": true
     }

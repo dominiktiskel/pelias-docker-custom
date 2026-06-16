@@ -27,11 +27,13 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_common_mini" ]
   openstreetmap:
-    image: tiskel/openstreetmap:v2.9.3
+    image: tiskel/openstreetmap:v2.10.0
     container_name: common_mini_openstreetmap
     user: "${DOCKER_USER}"
     environment:
-      NODE_OPTIONS: "--max-old-space-size=16384"
+      # bin/start passes --max_old_space_size=${NODE_MAX_HEAP:-8000} on the CLI,
+      # which overrides NODE_OPTIONS - so NODE_MAX_HEAP is the knob that works
+      NODE_MAX_HEAP: "16384"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
