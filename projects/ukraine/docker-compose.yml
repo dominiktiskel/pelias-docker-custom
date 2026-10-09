@@ -1,34 +1,34 @@
 networks:
-  pelias_common_mini_2:
+  pelias_ukraine:
     driver: bridge
 services:
   libpostal:
     image: pelias/libpostal-service
-    container_name: common_mini_2_libpostal
+    container_name: ukraine_libpostal
     user: "${DOCKER_USER}"
     restart: always
-    ports: [ "127.0.0.1:30400:4400" ]
-    networks: [ "pelias_common_mini_2" ]
+    ports: [ "127.0.0.1:31400:4400" ]
+    networks: [ "pelias_ukraine" ]
   schema:
     image: pelias/schema:master
-    container_name: common_mini_2_schema
+    container_name: ukraine_schema
     user: "${DOCKER_USER}"
     volumes:
       - "./pelias.json:/code/pelias.json"
-    networks: [ "pelias_common_mini_2" ]
+    networks: [ "pelias_ukraine" ]
   api:
     image: tiskel/pelias-api:v3.0.3
-    container_name: common_mini_2_api
+    container_name: ukraine_api
     user: "${DOCKER_USER}"
     restart: always
     environment: [ "PORT=4000" ]
-    ports: [ "0.0.0.0:30000:4000" ]
+    ports: [ "0.0.0.0:31000:4000" ]
     volumes:
       - "./pelias.json:/code/pelias.json"
-    networks: [ "pelias_common_mini_2" ]
+    networks: [ "pelias_ukraine" ]
   openstreetmap:
     image: tiskel/openstreetmap:v4.0.3
-    container_name: common_mini_2_openstreetmap
+    container_name: ukraine_openstreetmap
     user: "${DOCKER_USER}"
     environment:
       # bin/start passes --max_old_space_size=${NODE_MAX_HEAP:-8000} on the CLI,
@@ -37,13 +37,13 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
-    networks: [ "pelias_common_mini_2" ]
+    networks: [ "pelias_ukraine" ]
   elasticsearch:
     image: pelias/elasticsearch:7.17.27
-    container_name: common_mini_2_elasticsearch
+    container_name: ukraine_elasticsearch
     user: "${DOCKER_USER}"
     restart: always
-    ports: [ "127.0.0.1:30200:9200", "127.0.0.1:30300:9300" ]
+    ports: [ "127.0.0.1:31200:9200", "127.0.0.1:31300:9300" ]
     volumes:
       - "./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro"
       - "${DATA_DIR}/elasticsearch:/usr/share/elasticsearch/data"
@@ -57,4 +57,4 @@ services:
     cap_add: [ "IPC_LOCK" ]
     security_opt:
       - seccomp=unconfined
-    networks: [ "pelias_common_mini_2" ]
+    networks: [ "pelias_ukraine" ]

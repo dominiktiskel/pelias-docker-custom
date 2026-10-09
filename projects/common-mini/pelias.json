@@ -52,6 +52,9 @@
         },
         {
           "sourceURL": "http://download.geofabrik.de/europe/spain-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/ukraine-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
@@ -77,6 +80,12 @@
           "filename": "spain-latest.osm.pbf",
           "countryCode": "ES",
           "importVenues": true
+        },
+        {
+          "filename": "ukraine-latest.osm.pbf",
+          "countryCode": "UA",
+          "importVenues": true,
+          "importHighwayStreets": true
         }
       ],
       "aggregateHouseNumbers": true,
