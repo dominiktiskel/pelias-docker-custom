@@ -28,7 +28,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_usa_mini" ]
   openstreetmap:
-    image: tiskel/openstreetmap:v4.2.1
+    image: tiskel/openstreetmap:v4.2.2
     platform: linux/amd64
     container_name: usa_mini_openstreetmap
     user: "${DOCKER_USER}"
