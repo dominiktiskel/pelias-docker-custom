@@ -1,0 +1,71 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      {
+        "host": "elasticsearch"
+      }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 40.758,
+      "focus.point.lon": -73.971
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst",
+      "countryCode": "US",
+      "importPlace": [
+        "85688543"
+      ]
+    },
+    "openstreetmap": {
+      "download": [
+        {
+          "sourceURL": "https://download.geofabrik.de/north-america/us/new-york-latest.osm.pbf"
+        }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        {
+          "filename": "midtown.osm.pbf",
+          "countryCode": "US",
+          "importVenues": true,
+          "importHighwayStreets": true,
+          "importIntersections": true
+        }
+      ],
+      "aggregateHouseNumbers": true,
+      "importStreets": true
+    }
+  }
+}

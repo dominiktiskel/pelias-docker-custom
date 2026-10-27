@@ -1,0 +1,97 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      {
+        "host": "elasticsearch"
+      }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst",
+      "countryCode": "US",
+      "importPlace": [
+        "85688543",
+        "85688607",
+        "85688629"
+      ]
+    },
+    "openstreetmap": {
+      "download": [
+        {
+          "sourceURL": "https://download.geofabrik.de/north-america/us/new-york-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "https://download.geofabrik.de/north-america/us/connecticut-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "https://download.geofabrik.de/north-america/us/new-jersey-latest.osm.pbf"
+        }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        {
+          "filename": "new-york-latest.osm.pbf",
+          "countryCode": "US",
+          "importVenues": true,
+          "importHighwayStreets": true,
+          "importIntersections": true
+        },
+        {
+          "filename": "connecticut-latest.osm.pbf",
+          "countryCode": "US",
+          "importVenues": true,
+          "importHighwayStreets": true,
+          "importIntersections": true
+        },
+        {
+          "filename": "new-jersey-latest.osm.pbf",
+          "countryCode": "US",
+          "importVenues": true,
+          "importHighwayStreets": true,
+          "importIntersections": true
+        }
+      ],
+      "aggregateHouseNumbers": true,
+      "importStreets": true
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": [
+        "us/ny/statewide",
+        "us/ct/statewide",
+        "us/nj/statewide"
+      ]
+    }
+  }
+}

@@ -63,29 +63,34 @@
         {
           "filename": "poland-latest.osm.pbf",
           "countryCode": "PL",
-          "importVenues": true
+          "importVenues": true,
+          "importIntersections": true
         },
         {
           "filename": "great-britain-latest.osm.pbf",
           "countryCode": "GB",
           "importVenues": true,
-          "importHighwayStreets": true
+          "importHighwayStreets": true,
+          "importIntersections": true
         },
         {
           "filename": "germany-latest.osm.pbf",
           "countryCode": "DE",
-          "importVenues": true
+          "importVenues": true,
+          "importIntersections": true
         },
         {
           "filename": "spain-latest.osm.pbf",
           "countryCode": "ES",
-          "importVenues": true
+          "importVenues": true,
+          "importIntersections": true
         },
         {
           "filename": "ukraine-latest.osm.pbf",
           "countryCode": "UA",
           "importVenues": true,
-          "importHighwayStreets": true
+          "importHighwayStreets": true,
+          "importIntersections": true
         }
       ],
       "aggregateHouseNumbers": true,
