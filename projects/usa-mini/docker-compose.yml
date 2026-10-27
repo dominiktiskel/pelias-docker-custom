@@ -17,7 +17,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_usa_mini" ]
   api:
-    image: tiskel/pelias-api:v3.0.3
+    image: tiskel/pelias-api:v3.0.4
     platform: linux/amd64
     container_name: usa_mini_api
     user: "${DOCKER_USER}"

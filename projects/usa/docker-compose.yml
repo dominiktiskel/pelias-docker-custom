@@ -17,7 +17,7 @@ services:
       - "./pelias.json:/code/pelias.json"
     networks: [ "pelias_usa" ]
   api:
-    image: tiskel/pelias-api:v3.0.3
+    image: tiskel/pelias-api:v3.0.4
     container_name: usa_api
     user: "${DOCKER_USER}"
     restart: always
