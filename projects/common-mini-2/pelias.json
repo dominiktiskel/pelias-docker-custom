@@ -55,6 +55,9 @@
         },
         {
           "sourceURL": "http://download.geofabrik.de/europe/ukraine-latest.osm.pbf"
+        },
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/bulgaria-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
@@ -91,10 +94,23 @@
           "importVenues": true,
           "importHighwayStreets": true,
           "importIntersections": true
+        },
+        {
+          "filename": "bulgaria-latest.osm.pbf",
+          "countryCode": "BG",
+          "importVenues": true,
+          "importIntersections": true
         }
       ],
       "aggregateHouseNumbers": true,
       "importStreets": true
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": [
+        "bg/countrywide",
+        "bg/city_of_sofia"
+      ]
     }
   }
 }
